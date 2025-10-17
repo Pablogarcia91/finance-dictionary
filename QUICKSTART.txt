@@ -1,0 +1,16 @@
+🚀 QUICK START
+===============
+
+1. Install dependencies:
+   npm install
+
+2. Start development server:
+   npm run dev
+
+3. Open browser:
+   http://localhost:3000
+
+📚 For detailed setup instructions, see SETUP.md
+🌐 To deploy to GitHub, follow the steps in SETUP.md
+
+Need help? Check README.md for full documentation.
