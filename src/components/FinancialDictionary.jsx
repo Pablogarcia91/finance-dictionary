@@ -14,6 +14,7 @@ import {
   Moon,
   Sun,
   Volume2,
+  Menu,
 } from "lucide-react";
 
 const FinancialDictionary = () => {
@@ -21,6 +22,7 @@ const FinancialDictionary = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [authMode, setAuthMode] = useState("login");
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [authForm, setAuthForm] = useState({
     email: "",
     password: "",
@@ -114,16 +116,6 @@ const FinancialDictionary = () => {
         "Durante un mercado alcista, tu acción que costaba $10 ahora vale $15.",
     },
     {
-      id: 8,
-      termEN: "Capital Gains",
-      termES: "Ganancias de Capital",
-      description:
-        "Es el dinero que ganas cuando vendes algo por más de lo que pagaste.",
-      descriptionEN: "Money you make when you sell something for profit.",
-      example:
-        "Compraste una acción por $10 y la vendiste por $15. Tu ganancia de capital es $5.",
-    },
-    {
       id: 9,
       termEN: "Commission",
       termES: "Comisión",
@@ -140,34 +132,6 @@ const FinancialDictionary = () => {
       descriptionEN: "Following all the rules and laws about money.",
       example:
         "Un banco verifica la identidad de sus clientes para hacer compliance.",
-    },
-    {
-      id: 11,
-      termEN: "Compound Interest",
-      termES: "Interés Compuesto",
-      description:
-        "Es cuando ganas intereses sobre tus intereses. Tu dinero crece más rápido.",
-      descriptionEN: "When you earn interest on your interest.",
-      example:
-        "Año 1: tienes $100 y ganas $10. Año 2: tienes $110 y ganas $11.",
-    },
-    {
-      id: 12,
-      termEN: "Credit Score",
-      termES: "Puntaje de Crédito",
-      description:
-        "Es como una calificación que dice qué tan bueno eres pagando tus deudas.",
-      descriptionEN: "A grade for how good you are at paying debts.",
-      example: "Si siempre pagas a tiempo, tu puntaje sube.",
-    },
-    {
-      id: 13,
-      termEN: "Cryptocurrency",
-      termES: "Criptomoneda",
-      description: "Es dinero digital que existe solo en computadoras.",
-      descriptionEN: "Digital money that only exists on computers.",
-      example:
-        "Puedes comprar cosas con Bitcoin como con dólares, pero es digital.",
     },
     {
       id: 14,
@@ -230,14 +194,6 @@ const FinancialDictionary = () => {
       example: "El S&P 500 mide las 500 empresas más grandes.",
     },
     {
-      id: 21,
-      termEN: "Inflation",
-      termES: "Inflación",
-      description: "Es cuando las cosas se vuelven más caras con el tiempo.",
-      descriptionEN: "When things become more expensive over time.",
-      example: "Hace 20 años una hamburguesa costaba $2, ahora cuesta $5.",
-    },
-    {
       id: 22,
       termEN: "Interest Rate",
       termES: "Tasa de Interés",
@@ -247,39 +203,12 @@ const FinancialDictionary = () => {
         "Si prestas $100 con 5% de interés, después de un año tendrás $105.",
     },
     {
-      id: 23,
-      termEN: "IPO",
-      termES: "OPI / Oferta Pública Inicial",
-      description:
-        "Es cuando una empresa vende sus acciones al público por primera vez.",
-      descriptionEN: "When a company sells stocks to public first time.",
-      example: "Facebook hizo su IPO en 2012.",
-    },
-    {
       id: 24,
       termEN: "Liability",
       termES: "Pasivo",
       description: "Es dinero que debes. Lo contrario de un activo.",
       descriptionEN: "Money you owe. Opposite of asset.",
       example: "Si pides prestados $5, son un pasivo hasta que los devuelvas.",
-    },
-    {
-      id: 25,
-      termEN: "Market Cap",
-      termES: "Capitalización de Mercado",
-      description: "Es cuánto vale toda una empresa en el mercado.",
-      descriptionEN: "How much a whole company is worth.",
-      example:
-        "Si hay 100 acciones de $10 cada una, la capitalización es $1,000.",
-    },
-    {
-      id: 26,
-      termEN: "Mutual Fund",
-      termES: "Fondo Mutuo",
-      description:
-        "Es cuando muchas personas juntan su dinero para comprar acciones.",
-      descriptionEN: "When people pool money to buy stocks.",
-      example: "Con $50 puedes comprar parte de un fondo con 100 empresas.",
     },
     {
       id: 27,
@@ -296,14 +225,6 @@ const FinancialDictionary = () => {
       description: "Es el conjunto de todas tus inversiones.",
       descriptionEN: "The collection of all your investments.",
       example: "Tu portafolio puede tener 5 acciones de Disney y 3 de Tesla.",
-    },
-    {
-      id: 29,
-      termEN: "Recession",
-      termES: "Recesión",
-      description: "Es cuando la economía va mal y la gente pierde trabajos.",
-      descriptionEN: "When the economy goes bad.",
-      example: "Durante una recesión es más difícil encontrar trabajo.",
     },
     {
       id: 30,
@@ -472,6 +393,86 @@ const FinancialDictionary = () => {
       descriptionEN: "A company that owns, operates, or finances income-producing real estate across a range of property sectors. REITs provide investors with a way to invest in real estate without directly buying property, offering regular dividend income and potential appreciation. By law, REITs must distribute at least 90% of taxable income to shareholders as dividends.",
       descriptionES: "Una empresa que posee, opera o financia bienes raíces que generan ingresos en diversos sectores inmobiliarios. Los REITs proporcionan a los inversores una forma de invertir en bienes raíces sin comprar propiedades directamente.",
       example: "American Tower Corporation (AMT), uno de los REITs más grandes del mundo, posee y opera más de 220,000 torres de comunicaciones en todo el mundo que arriendan a compañías de telecomunicaciones. Un inversor que compró $10,000 en acciones de American Tower en 2012 a aproximadamente $70 por acción habría recibido dividendos crecientes cada año—comenzando en aproximadamente $1.40 por acción (2% de rendimiento) y creciendo a $5.76 por acción para 2022. Además, el precio de las acciones se apreció a más de $250 por acción, haciendo que la inversión original de $10,000 valiera más de $35,000. Los REITs son particularmente atractivos para inversores orientados a ingresos porque, por ley, deben distribuir el 90% de sus ingresos imponibles como dividendos. Esto significa que los inversores obtienen exposición a bienes raíces comerciales de alto valor—torres de comunicaciones, centros comerciales, edificios de oficinas, centros de datos—sin necesitar millones de dólares para comprar propiedades directamente ni lidiar con inquilinos, mantenimiento o gestión de propiedades.",
+    },
+    {
+      id: 51,
+      termEN: "Growth Stock",
+      termES: "Acción de Crecimiento",
+      descriptionEN: "A stock of a company expected to grow at an above-average rate compared to other companies in the market. Growth stocks typically reinvest earnings into expansion rather than paying dividends, and are valued based on future potential rather than current profitability.",
+      descriptionES: "Una acción de una empresa que se espera crezca a una tasa superior al promedio en comparación con otras empresas del mercado. Las acciones de crecimiento típicamente reinvierten ganancias en expansión en lugar de pagar dividendos.",
+      example: "Tesla es un ejemplo clásico de acción de crecimiento. Entre 2019 y 2021, las acciones de Tesla subieron de aproximadamente $50 a más de $1,200 (ajustado por splits), un incremento de más del 2,300%. Los inversores apostaron por el potencial futuro de Tesla en vehículos eléctricos y energía renovable, a pesar de que la empresa tuvo años de pérdidas antes de volverse consistentemente rentable. A diferencia de empresas maduras que pagan dividendos regulares, Tesla reinvirtió todas sus ganancias en nuevas fábricas, desarrollo de tecnología y expansión global. Sin embargo, las acciones de crecimiento también son más volátiles: cuando Tesla cayó de $1,200 a $700 en 2022, muchos inversores experimentaron pérdidas significativas. Este tipo de acciones son ideales para inversores con alta tolerancia al riesgo y horizontes de inversión a largo plazo.",
+    },
+    {
+      id: 52,
+      termEN: "Junk Bond",
+      termES: "Bono Basura",
+      descriptionEN: "A high-yield bond with a credit rating below investment grade (BB or lower), issued by companies with higher risk of default. These bonds offer higher interest rates to compensate investors for the increased risk, making them attractive to risk-tolerant investors seeking higher returns.",
+      descriptionES: "Un bono de alto rendimiento con una calificación crediticia por debajo del grado de inversión (BB o inferior), emitido por empresas con mayor riesgo de incumplimiento. Estos bonos ofrecen tasas de interés más altas para compensar a los inversores por el mayor riesgo.",
+      example: "Durante la década de 1980, el financiero Michael Milken popularizó los bonos basura como una forma para que empresas más pequeñas y riesgosas obtuvieran financiamiento. Por ejemplo, una startup tecnológica sin historial de ganancias podría emitir bonos con una tasa de interés del 10-12% anual, comparado con solo 3-4% para bonos de empresas establecidas como Apple o Microsoft. Un inversor que compra $100,000 en bonos basura podría recibir $10,000-$12,000 anuales en intereses, significativamente más que los $3,000-$4,000 de bonos seguros. Sin embargo, el riesgo es real: durante la crisis financiera de 2008, muchos emisores de bonos basura incumplieron, y los inversores perdieron parte o la totalidad de su inversión principal. Los fondos de bonos de alto rendimiento permiten a los inversores diversificar este riesgo manteniendo bonos basura de múltiples emisores.",
+    },
+    {
+      id: 53,
+      termEN: "K-Shaped Recovery",
+      termES: "Recuperación en Forma de K",
+      descriptionEN: "An economic recovery pattern where different sectors, industries, or demographic groups recover at different rates, creating divergent trajectories. Some segments experience rapid growth (upper arm of the K) while others continue declining (lower arm), leading to increased economic inequality.",
+      descriptionES: "Un patrón de recuperación económica donde diferentes sectores, industrias o grupos demográficos se recuperan a diferentes tasas, creando trayectorias divergentes. Algunos segmentos experimentan crecimiento rápido mientras otros continúan en declive.",
+      example: "La recuperación de la pandemia de COVID-19 en 2020-2021 fue un ejemplo clásico de recuperación en K. Las empresas tecnológicas como Zoom, Amazon y Netflix experimentaron un crecimiento explosivo, con sus acciones subiendo 100-300%, beneficiando a inversores y trabajadores tecnológicos bien pagados. Mientras tanto, industrias como restaurantes, hoteles, aerolíneas y retail minorista sufrieron pérdidas masivas, con millones de trabajadores perdiendo empleos permanentemente. Un ingeniero de software trabajando desde casa vio su cartera de inversiones crecer significativamente, mientras que un mesero perdió su trabajo y sus ahorros. Esta divergencia amplió la brecha de riqueza: los hogares del 10% superior aumentaron su patrimonio neto en promedio $500,000, mientras que el 50% inferior vio declinar sus finanzas. Las recuperaciones en K generan debates sobre políticas públicas, redistribución y equidad económica.",
+    },
+    {
+      id: 54,
+      termEN: "Net Worth",
+      termES: "Patrimonio Neto",
+      descriptionEN: "The total value of an individual's or entity's assets minus their total liabilities. Net worth is a key indicator of financial health, representing what you would have left if you sold everything you own and paid off all your debts.",
+      descriptionES: "El valor total de los activos de un individuo o entidad menos sus pasivos totales. El patrimonio neto es un indicador clave de salud financiera, representando lo que quedaría si vendieras todo lo que posees y pagaras todas tus deudas.",
+      example: "Carlos, de 35 años, decide calcular su patrimonio neto. Sus activos incluyen: una casa valorada en $400,000, cuentas de jubilación con $150,000, cuenta de ahorros con $30,000, un auto de $25,000, y acciones por $50,000, totalizando $655,000 en activos. Sus pasivos incluyen: hipoteca de $280,000, préstamo de auto de $15,000, y deuda de tarjetas de crédito de $5,000, totalizando $300,000 en deudas. Su patrimonio neto es de $355,000 ($655,000 - $300,000). Comparativamente, su amiga Jennifer de la misma edad tiene ingresos similares pero vive en una ciudad más cara, renta en lugar de ser propietaria, tiene $200,000 en cuentas de jubilación pero también $80,000 en préstamos estudiantiles, resultando en un patrimonio neto de solo $120,000. Hacer un seguimiento del patrimonio neto anualmente ayuda a medir el progreso financiero y tomar mejores decisiones de inversión y gasto.",
+    },
+    {
+      id: 55,
+      termEN: "Quantitative Easing",
+      termES: "Flexibilización Cuantitativa",
+      descriptionEN: "A monetary policy tool used by central banks to stimulate the economy by purchasing government bonds or other securities to increase money supply and lower interest rates. QE is typically employed when conventional monetary policy becomes ineffective, such as when interest rates are near zero.",
+      descriptionES: "Una herramienta de política monetaria utilizada por los bancos centrales para estimular la economía comprando bonos gubernamentales u otros valores para aumentar la oferta monetaria y reducir las tasas de interés.",
+      example: "Durante la crisis financiera de 2008-2014, la Reserva Federal de EE.UU. implementó múltiples rondas de flexibilización cuantitativa (QE1, QE2, QE3), comprando más de $4 billones en bonos del Tesoro y valores respaldados por hipotecas. Este masivo programa tenía como objetivo reducir las tasas de interés a largo plazo y estimular la economía cuando las tasas a corto plazo ya estaban cerca de cero. El impacto fue significativo: las tasas hipotecarias cayeron por debajo del 4%, haciendo que comprar casas fuera más asequible; las empresas pudieron tomar préstamos baratos para expandirse; y los mercados de valores se dispararon cuando los inversores buscaron mayores rendimientos que los bonos de bajo rendimiento. Sin embargo, los críticos argumentan que el QE benefició desproporcionadamente a los ricos que poseen activos financieros, contribuyendo a la desigualdad de riqueza. Durante la pandemia de COVID-19, la Fed nuevamente usó QE, expandiendo su balance a más de $8 billones para estabilizar los mercados financieros.",
+    },
+    {
+      id: 56,
+      termEN: "Underwater Mortgage",
+      termES: "Hipoteca Bajo el Agua",
+      descriptionEN: "A mortgage loan where the outstanding balance exceeds the current market value of the property. Also called being 'upside down' on a mortgage, this situation typically occurs when property values decline after purchase, leaving homeowners owing more than their home is worth.",
+      descriptionES: "Un préstamo hipotecario donde el saldo pendiente excede el valor actual de mercado de la propiedad. Esta situación típicamente ocurre cuando los valores de las propiedades disminuyen después de la compra.",
+      example: "Durante la crisis inmobiliaria de 2008-2011, millones de estadounidenses se encontraron con hipotecas bajo el agua. Por ejemplo, María compró una casa en Las Vegas en 2006 por $350,000 con un enganche del 5% ($17,500) y una hipoteca de $332,500. Para 2010, los valores de las casas en Las Vegas habían caído un 60%, haciendo que su casa ahora valiera solo $140,000, pero todavía debía $320,000 en su hipoteca. Estaba $180,000 'bajo el agua'. Esto creó un dilema terrible: no podía vender sin traer $180,000 adicionales al cierre, no podía refinanciar porque los bancos no prestan más del valor de la casa, y continuar pagando significaba pagar una hipoteca de $320,000 por una casa que valía $140,000. Muchos propietarios en esta situación optaron por la ejecución hipotecaria estratégica, permitiendo que el banco se quedara con la casa, aunque esto destruyó sus puntajes crediticios. Este fenómeno afectó a aproximadamente 11 millones de hogares estadounidenses durante la Gran Recesión.",
+    },
+    {
+      id: 57,
+      termEN: "Warrant",
+      termES: "Warrant / Certificado de Opción",
+      descriptionEN: "A derivative security that gives the holder the right, but not the obligation, to buy a company's stock at a specific price before a certain date. Similar to stock options but issued by the company itself, warrants are often attached to bonds or preferred stock as a 'sweetener' to make the offering more attractive.",
+      descriptionES: "Un valor derivado que otorga al titular el derecho, pero no la obligación, de comprar acciones de una empresa a un precio específico antes de una fecha determinada. Similar a las opciones sobre acciones pero emitido por la propia empresa.",
+      example: "Cuando una startup tecnológica necesitaba recaudar $10 millones pero los inversores consideraban que los bonos al 5% eran demasiado arriesgados, la empresa agregó warrants como incentivo. Por cada bono de $1,000, los inversores recibieron warrants para comprar 100 acciones a $20 cada una, válidos durante 5 años. Inicialmente, con las acciones cotizando a $18, los warrants estaban 'fuera del dinero' y sin valor. Sin embargo, cuando la empresa tuvo éxito y las acciones subieron a $50 tres años después, cada warrant valía $30 ($50 precio de mercado - $20 precio de ejercicio). Un inversor con 10 bonos ($10,000 invertidos) tenía 1,000 warrants ahora valorados en $30,000, además de haber recibido pagos de intereses del 5% anualmente. Los warrants diluyeron a los accionistas existentes cuando se ejercieron, pero permitieron a la empresa recaudar capital cuando más lo necesitaba. A diferencia de las opciones negociadas públicamente, los warrants típicamente tienen períodos de ejercicio más largos (5-10 años) y son emitidos directamente por la empresa.",
+    },
+    {
+      id: 58,
+      termEN: "X-Date",
+      termES: "Fecha X",
+      descriptionEN: "The date by which the U.S. Treasury estimates it will no longer be able to pay all government obligations if Congress doesn't raise or suspend the debt ceiling. Also known as the 'drop-dead date,' this represents when the government would run out of extraordinary measures and cash to meet its financial commitments.",
+      descriptionES: "La fecha en que el Tesoro de EE.UU. estima que ya no podrá pagar todas las obligaciones del gobierno si el Congreso no aumenta o suspende el techo de deuda. También conocida como la 'fecha límite'.",
+      example: "En mayo de 2023, Estados Unidos se acercó peligrosamente a su X-Date, estimada alrededor del 1 de junio, cuando la Secretaria del Tesoro Janet Yellen advirtió que el gobierno no podría pagar todas sus facturas sin un aumento del techo de deuda. Los mercados financieros reaccionaron con nerviosismo: los bonos del Tesoro de corto plazo vieron tasas de interés dispararse del 3% al 7% a medida que los inversores se preocupaban por un posible incumplimiento. Las acciones cayeron un 5% en una semana. Las negociaciones políticas se intensificaron con proyecciones de que un incumplimiento podría desencadenar una recesión global, pérdida de 7 millones de empleos estadounidenses, y el colapso del dólar como moneda de reserva mundial. El 2 de junio, apenas días antes de la X-Date, el Congreso aprobó un aumento del techo de deuda, evitando la catástrofe. Este drama recurrente demuestra cómo las decisiones políticas pueden crear volatilidad financiera masiva e incertidumbre económica.",
+    },
+    {
+      id: 59,
+      termEN: "Yield Curve",
+      termES: "Curva de Rendimiento",
+      descriptionEN: "A line graph that plots the interest rates of bonds with equal credit quality but different maturity dates. The shape of the yield curve provides insights into future interest rate changes and economic activity. A normal yield curve slopes upward, while an inverted curve (short-term rates higher than long-term) often predicts recession.",
+      descriptionES: "Un gráfico de línea que representa las tasas de interés de bonos con igual calidad crediticia pero diferentes fechas de vencimiento. La forma de la curva de rendimiento proporciona información sobre cambios futuros en las tasas de interés y la actividad económica.",
+      example: "En marzo de 2022, la curva de rendimiento del Tesoro de EE.UU. se invirtió cuando los bonos a 2 años ofrecían 2.5% mientras que los bonos a 10 años solo ofrecían 2.3%. Esta inversión señaló que los inversores esperaban que la Reserva Federal aumentara agresivamente las tasas a corto plazo para combatir la inflación, pero que eventualmente tendría que recortarlas cuando la economía se desacelerara. Históricamente, las inversiones de la curva de rendimiento han precedido a 7 de las últimas 7 recesiones, típicamente ocurriendo 12-18 meses antes de la contracción económica. Los inversores inteligentes prestaron atención: aquellos que cambiaron a posiciones más defensivas en 2022-2023 protegieron su capital, mientras que quienes ignoraron esta señal enfrentaron pérdidas significativas. Para 2023, la economía de hecho se desaceleró con el sector bancario experimentando estrés y el crecimiento del empleo disminuyendo. La curva de rendimiento es una de las herramientas predictivas más confiables en finanzas, razón por la cual los profesionales la monitorean constantemente.",
+    },
+    {
+      id: 60,
+      termEN: "Zero-Coupon Bond",
+      termES: "Bono Cupón Cero",
+      descriptionEN: "A bond that doesn't pay periodic interest (coupon payments) but is instead issued at a deep discount to its face value. The investor's return comes entirely from the difference between the purchase price and the face value received at maturity, making it a pure discount instrument.",
+      descriptionES: "Un bono que no paga intereses periódicos sino que se emite con un descuento profundo sobre su valor nominal. El retorno del inversor proviene completamente de la diferencia entre el precio de compra y el valor nominal recibido al vencimiento.",
+      example: "Un bono cupón cero del Tesoro de EE.UU. con vencimiento en 20 años y valor nominal de $10,000 podría venderse hoy por $3,769 (asumiendo un rendimiento del 5% anual). El inversor no recibe pagos de intereses durante los 20 años; en cambio, paga $3,769 hoy y recibe $10,000 en 20 años, obteniendo $6,231 en ganancias. Estos bonos son populares para planificación de jubilación y ahorro universitario porque el rendimiento es predecible. Por ejemplo, padres que compran $50,000 en bonos cupón cero a 18 años por aproximadamente $20,000 saben exactamente cuánto tendrán para la universidad de sus hijos. Sin embargo, hay una trampa fiscal: aunque no recibes pagos de intereses, el IRS requiere que declares y pagues impuestos sobre el 'interés imputado' cada año, haciendo que estos bonos sean más adecuados para cuentas con ventajas fiscales como IRAs. Los bonos cupón cero también son más volátiles que los bonos regulares; cuando las tasas de interés suben 1%, un bono cupón cero a 20 años puede caer 20% en valor.",
     },
   ];
 
@@ -855,25 +856,21 @@ const FinancialDictionary = () => {
   // Landing Page
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-[#1c1917]">
+      <div className={`min-h-screen ${t.bg}`}>
         {/* Header */}
-        <div className="border-b-2 border-[#44403c]">
-          <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 border-2 border-[#fafaf9] flex items-center justify-center">
-                <div className="w-6 h-6 bg-[#fafaf9]"></div>
-              </div>
-              <span className="font-editorial-display text-xl font-bold text-[#fafaf9] tracking-tight">
-                Financial Dictionary
-              </span>
-            </div>
-            <div className="flex items-center gap-4">
+        <div className={`border-b-2 ${t.border}`}>
+          <div className="max-w-7xl mx-auto px-4 md:px-6 py-4 md:py-5 flex items-center justify-between">
+            <h1 className={`font-editorial-display text-base md:text-xl font-bold ${t.text} tracking-tight`}>
+              Financial Dictionary
+            </h1>
+            {/* Desktop Menu */}
+            <div className="hidden md:flex items-center gap-4">
               <button
                 onClick={() => {
                   setAuthMode("login");
                   setShowAuthModal(true);
                 }}
-                className="font-editorial-body text-[#d6d3d1] hover:text-[#fafaf9] transition-colors text-sm"
+                className={`font-editorial-body ${t.textSecondary} hover:${t.text.split(' ')[0].replace('text-', 'text-')} transition-colors text-sm`}
               >
                 Log in
               </button>
@@ -882,31 +879,90 @@ const FinancialDictionary = () => {
                   setAuthMode("signup");
                   setShowAuthModal(true);
                 }}
-                className="px-5 py-2.5 border-2 border-[#fafaf9] text-[#fafaf9] hover:bg-[#fafaf9] hover:text-[#1c1917] transition-all text-sm font-editorial-accent font-semibold"
+                className={`px-5 py-2.5 border-2 ${theme === 'dark' ? 'border-[#fafaf9] text-[#fafaf9] hover:bg-[#fafaf9] hover:text-[#1c1917]' : 'border-[#1c1917] text-[#1c1917] hover:bg-[#1c1917] hover:text-[#fafaf9]'} transition-all text-sm font-editorial-accent font-semibold`}
               >
                 Sign up
               </button>
             </div>
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setShowMobileMenu(!showMobileMenu)}
+              className={`md:hidden ${t.text} p-2`}
+            >
+              {showMobileMenu ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+          {/* Mobile Menu Dropdown */}
+          <div className={`md:hidden border-t ${t.border} ${t.bgSecondary} overflow-hidden transition-all duration-300 ease-in-out ${showMobileMenu ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'}`}>
+            <nav className="animate-fadeIn">
+              <ul className="px-4 py-3 space-y-1">
+                <li className="animate-slideIn" style={{ animationDelay: '0.05s' }}>
+                  <a
+                    onClick={() => {
+                      setAuthMode("login");
+                      setShowAuthModal(true);
+                      setShowMobileMenu(false);
+                    }}
+                    className={`block font-editorial-body ${t.textSecondary} hover:${t.text.split(' ')[0].replace('text-', 'text-')} transition-all duration-200 text-base py-3 cursor-pointer hover:pl-2`}
+                  >
+                    Log in
+                  </a>
+                </li>
+                <li className="animate-slideIn" style={{ animationDelay: '0.1s' }}>
+                  <a
+                    onClick={() => {
+                      setAuthMode("signup");
+                      setShowAuthModal(true);
+                      setShowMobileMenu(false);
+                    }}
+                    className={`block font-editorial-body ${t.textSecondary} hover:${t.text.split(' ')[0].replace('text-', 'text-')} transition-all duration-200 text-base py-3 cursor-pointer hover:pl-2`}
+                  >
+                    Sign up
+                  </a>
+                </li>
+                <li className={`animate-slideIn border-t ${t.border} pt-2 mt-2`} style={{ animationDelay: '0.15s' }}>
+                  <a
+                    onClick={() => {
+                      toggleTheme();
+                      setShowMobileMenu(false);
+                    }}
+                    className={`block font-editorial-body ${t.textSecondary} hover:${t.text.split(' ')[0].replace('text-', 'text-')} transition-all duration-200 text-base py-3 cursor-pointer hover:pl-2 flex items-center gap-2`}
+                  >
+                    {theme === 'dark' ? (
+                      <>
+                        <Sun className="w-4 h-4" />
+                        <span>Light mode</span>
+                      </>
+                    ) : (
+                      <>
+                        <Moon className="w-4 h-4" />
+                        <span>Dark mode</span>
+                      </>
+                    )}
+                  </a>
+                </li>
+              </ul>
+            </nav>
           </div>
         </div>
 
         {/* Hero Section */}
-        <div className="max-w-7xl mx-auto px-6 py-32">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-32">
           <div className="max-w-4xl">
-            <h1 className="font-editorial-display text-7xl font-bold text-[#fafaf9] mb-8 leading-tight tracking-tight">
+            <h1 className={`font-editorial-display text-3xl md:text-7xl font-bold ${t.text} mb-6 md:mb-8 leading-tight tracking-tight`}>
               Your financial literacy companion for modern investors
             </h1>
-            <p className="font-editorial-body text-xl text-[#d6d3d1] mb-12 text-editorial max-w-2xl">
+            <p className={`font-editorial-body text-base md:text-xl ${t.textSecondary} mb-8 md:mb-12 text-editorial max-w-2xl`}>
               Master investment terminology with simple, clear explanations.
               Build your financial knowledge base with our comprehensive
-              dictionary of 34+ terms.
+              dictionary of 50+ terms.
             </p>
             <button
               onClick={() => {
                 setAuthMode("signup");
                 setShowAuthModal(true);
               }}
-              className="px-6 py-3 border-2 border-[#fafaf9] bg-[#fafaf9] text-[#1c1917] hover:bg-transparent hover:text-[#fafaf9] transition-all text-base font-editorial-accent font-semibold"
+              className={`px-5 md:px-6 py-2.5 md:py-3 border-2 ${theme === 'dark' ? 'border-[#fafaf9] bg-[#fafaf9] text-[#1c1917] hover:bg-transparent hover:text-[#fafaf9]' : 'border-[#1c1917] bg-[#1c1917] text-[#fafaf9] hover:bg-transparent hover:text-[#1c1917]'} transition-all text-sm md:text-base font-editorial-accent font-semibold`}
             >
               Start learning
             </button>
@@ -915,16 +971,16 @@ const FinancialDictionary = () => {
 
         {/* Auth Modal */}
         {showAuthModal && (
-          <div className="fixed inset-0 bg-[#1c1917]/90 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-            <div className="bg-[#292524] shadow-2xl w-full max-w-md border-2 border-[#44403c]">
+          <div className={`fixed inset-0 ${theme === 'dark' ? 'bg-[#1c1917]/90' : 'bg-gray-900/50'} backdrop-blur-sm z-50 flex items-center justify-center p-4`}>
+            <div className={`${t.bgSecondary} shadow-2xl w-full max-w-md border-2 ${t.border}`}>
               <div className="p-8">
                 <div className="flex items-center justify-between mb-6">
-                  <h2 className="font-editorial-display text-3xl font-bold text-[#fafaf9]">
+                  <h2 className={`font-editorial-display text-3xl font-bold ${t.text}`}>
                     {authMode === "login" ? "Log in" : "Create account"}
                   </h2>
                   <button
                     onClick={() => setShowAuthModal(false)}
-                    className="text-[#a8a29e] hover:text-[#fafaf9]"
+                    className={`${t.textTertiary} hover:${t.text.split(' ')[0].replace('text-', 'text-')}`}
                   >
                     <X className="w-5 h-5" />
                   </button>
@@ -934,7 +990,7 @@ const FinancialDictionary = () => {
                   {authMode === "signup" && (
                     <>
                       <div>
-                        <label className="block font-editorial-accent text-sm font-semibold text-[#d6d3d1] mb-2">
+                        <label className={`block font-editorial-accent text-sm font-semibold ${t.textSecondary} mb-2`}>
                           First Name
                         </label>
                         <input
@@ -946,12 +1002,12 @@ const FinancialDictionary = () => {
                               firstName: e.target.value,
                             })
                           }
-                          className="w-full px-4 py-3 bg-[#1c1917] border-2 border-[#44403c] font-editorial-body text-[#fafaf9] placeholder-[#78716c] focus:outline-none focus:border-[#a8a29e]"
+                          className={`w-full px-4 py-3 ${t.bg} border-2 ${t.border} font-editorial-body ${t.text} placeholder-${t.textTertiary.split('-')[1]}-${t.textTertiary.split('-')[2]} focus:outline-none focus:${t.borderSecondary}`}
                           placeholder="John"
                         />
                       </div>
                       <div>
-                        <label className="block font-editorial-accent text-sm font-semibold text-[#d6d3d1] mb-2">
+                        <label className={`block font-editorial-accent text-sm font-semibold ${t.textSecondary} mb-2`}>
                           Last Name
                         </label>
                         <input
@@ -963,14 +1019,14 @@ const FinancialDictionary = () => {
                               lastName: e.target.value,
                             })
                           }
-                          className="w-full px-4 py-3 bg-[#1c1917] border-2 border-[#44403c] font-editorial-body text-[#fafaf9] placeholder-[#78716c] focus:outline-none focus:border-[#a8a29e]"
+                          className={`w-full px-4 py-3 ${t.bg} border-2 ${t.border} font-editorial-body ${t.text} placeholder-${t.textTertiary.split('-')[1]}-${t.textTertiary.split('-')[2]} focus:outline-none focus:${t.borderSecondary}`}
                           placeholder="Doe"
                         />
                       </div>
                     </>
                   )}
                   <div>
-                    <label className="block font-editorial-accent text-sm font-semibold text-[#d6d3d1] mb-2">
+                    <label className={`block font-editorial-accent text-sm font-semibold ${t.textSecondary} mb-2`}>
                       Email
                     </label>
                     <input
@@ -979,12 +1035,12 @@ const FinancialDictionary = () => {
                       onChange={(e) =>
                         setAuthForm({ ...authForm, email: e.target.value })
                       }
-                      className="w-full px-4 py-3 bg-[#1c1917] border-2 border-[#44403c] font-editorial-body text-[#fafaf9] placeholder-[#78716c] focus:outline-none focus:border-[#a8a29e]"
+                      className={`w-full px-4 py-3 ${t.bg} border-2 ${t.border} font-editorial-body ${t.text} placeholder-${t.textTertiary.split('-')[1]}-${t.textTertiary.split('-')[2]} focus:outline-none focus:${t.borderSecondary}`}
                       placeholder="you@example.com"
                     />
                   </div>
                   <div>
-                    <label className="block font-editorial-accent text-sm font-semibold text-[#d6d3d1] mb-2">
+                    <label className={`block font-editorial-accent text-sm font-semibold ${t.textSecondary} mb-2`}>
                       Password
                     </label>
                     <input
@@ -993,13 +1049,13 @@ const FinancialDictionary = () => {
                       onChange={(e) =>
                         setAuthForm({ ...authForm, password: e.target.value })
                       }
-                      className="w-full px-4 py-3 bg-[#1c1917] border-2 border-[#44403c] font-editorial-body text-[#fafaf9] placeholder-[#78716c] focus:outline-none focus:border-[#a8a29e]"
+                      className={`w-full px-4 py-3 ${t.bg} border-2 ${t.border} font-editorial-body ${t.text} placeholder-${t.textTertiary.split('-')[1]}-${t.textTertiary.split('-')[2]} focus:outline-none focus:${t.borderSecondary}`}
                       placeholder="••••••••"
                     />
                   </div>
                   <button
                     type="submit"
-                    className="w-full px-4 py-3 border-2 border-[#fafaf9] bg-[#fafaf9] text-[#1c1917] font-editorial-accent font-bold hover:bg-transparent hover:text-[#fafaf9] transition-all mt-6"
+                    className={`w-full px-4 py-3 border-2 ${theme === 'dark' ? 'border-[#fafaf9] bg-[#fafaf9] text-[#1c1917] hover:bg-transparent hover:text-[#fafaf9]' : 'border-[#1c1917] bg-[#1c1917] text-[#fafaf9] hover:bg-transparent hover:text-[#1c1917]'} font-editorial-accent font-bold transition-all mt-6`}
                   >
                     {authMode === "login" ? "Log in" : "Create account"}
                   </button>
@@ -1010,7 +1066,7 @@ const FinancialDictionary = () => {
                     onClick={() =>
                       setAuthMode(authMode === "login" ? "signup" : "login")
                     }
-                    className="font-editorial-body text-sm text-[#a8a29e] hover:text-[#fafaf9]"
+                    className={`font-editorial-body text-sm ${t.textTertiary} hover:${t.text.split(' ')[0].replace('text-', 'text-')}`}
                   >
                     {authMode === "login"
                       ? "Don't have an account? Sign up"
@@ -1136,26 +1192,26 @@ const FinancialDictionary = () => {
                     <button
                       key={term.id}
                       onClick={() => handleSearchSelect(term)}
-                      className="w-full px-4 py-3 flex items-center justify-between hover:bg-gray-800/50 transition-colors border-b border-gray-800/50 last:border-b-0"
+                      className={`w-full px-4 py-3 flex items-center justify-between ${t.hover} transition-colors border-b ${t.border} last:border-b-0`}
                     >
                       <div className="text-left">
-                        <div className="text-white font-medium text-base">
+                        <div className={`${t.text} font-medium text-base`}>
                           {highlightText(term.termEN, dialogSearchTerm)}
                         </div>
-                        <div className="text-gray-400 text-sm mt-0.5">
+                        <div className={`${t.textSecondary} text-sm mt-0.5`}>
                           {highlightText(term.termES, dialogSearchTerm)}
                         </div>
                       </div>
-                      <ArrowRight className="w-4 h-4 text-gray-500 flex-shrink-0 ml-3" />
+                      <ArrowRight className={`w-4 h-4 ${t.textTertiary} flex-shrink-0 ml-3`} />
                     </button>
                   ))
                 ) : (
-                  <div className="px-4 py-12 text-center text-gray-400">
-                    <Search className="w-12 h-12 mx-auto mb-3 text-gray-600" />
+                  <div className={`px-4 py-12 text-center ${t.textSecondary}`}>
+                    <Search className={`w-12 h-12 mx-auto mb-3 ${t.textTertiary}`} />
                     <p className="text-base">
                       No results found for "{dialogSearchTerm}"
                     </p>
-                    <p className="text-sm text-gray-500 mt-1">
+                    <p className={`text-sm ${t.textTertiary} mt-1`}>
                       Try searching with a different term
                     </p>
                   </div>
@@ -1165,14 +1221,14 @@ const FinancialDictionary = () => {
               // Show search history when input is empty
               searchHistory.length > 0 && (
                 <div className="max-h-96 overflow-y-auto">
-                  <div className="px-4 py-3 flex items-center justify-between border-b border-gray-800 bg-gray-900/30">
-                    <div className="flex items-center gap-2 text-xs font-semibold text-gray-400 uppercase tracking-wide">
+                  <div className={`px-4 py-3 flex items-center justify-between border-b ${t.border} ${theme === 'dark' ? 'bg-gray-900/30' : 'bg-gray-100/50'}`}>
+                    <div className={`flex items-center gap-2 text-xs font-semibold ${t.textSecondary} uppercase tracking-wide`}>
                       <Clock className="w-3.5 h-3.5" />
                       <span>Recent Searches</span>
                     </div>
                     <button
                       onClick={clearSearchHistory}
-                      className="text-xs text-gray-400 hover:text-white transition-colors"
+                      className={`text-xs ${t.textSecondary} hover:${t.text.split(' ')[0].replace('text', '')} transition-colors`}
                     >
                       Clear all
                     </button>
@@ -1180,14 +1236,14 @@ const FinancialDictionary = () => {
                   {searchHistory.map((search, index) => (
                     <div
                       key={index}
-                      className="px-4 py-3 flex items-center justify-between hover:bg-gray-800/50 transition-colors group border-b border-gray-800/50 last:border-b-0"
+                      className={`px-4 py-3 flex items-center justify-between ${t.hover} transition-colors group border-b ${t.border} last:border-b-0`}
                     >
                       <button
                         onClick={() => handleSearchFromHistory(search)}
                         className="flex-1 text-left flex items-center gap-3"
                       >
-                        <Clock className="w-4 h-4 text-gray-500 flex-shrink-0" />
-                        <span className="text-gray-300 text-base">
+                        <Clock className={`w-4 h-4 ${t.textTertiary} flex-shrink-0`} />
+                        <span className={`${t.textSecondary} text-base`}>
                           {search}
                         </span>
                       </button>
@@ -1196,7 +1252,7 @@ const FinancialDictionary = () => {
                           e.stopPropagation();
                           removeFromSearchHistory(search);
                         }}
-                        className="text-gray-500 hover:text-red-400 transition-colors opacity-0 group-hover:opacity-100 ml-2"
+                        className={`${t.textTertiary} hover:text-red-400 transition-colors opacity-0 group-hover:opacity-100 ml-2`}
                       >
                         <Trash2 className="w-4 h-4" />
                       </button>
@@ -1207,21 +1263,21 @@ const FinancialDictionary = () => {
             )}
 
             {/* Footer with shortcuts */}
-            <div className="px-4 py-3 border-t border-gray-800 flex gap-4 text-xs text-gray-500 bg-gray-900/30">
+            <div className={`px-4 py-3 border-t ${t.border} flex gap-4 text-xs ${t.textTertiary} ${theme === 'dark' ? 'bg-gray-900/30' : 'bg-gray-100/50'}`}>
               <span className="flex items-center gap-1.5">
-                <kbd className="px-1.5 py-0.5 bg-gray-800 border border-gray-700 rounded text-xs">
+                <kbd className={`px-1.5 py-0.5 ${theme === 'dark' ? 'bg-gray-800 border-gray-700' : 'bg-gray-200 border-gray-400'} border rounded text-xs`}>
                   ⌘K
                 </kbd>
                 <span>to search</span>
               </span>
               <span className="flex items-center gap-1.5">
-                <kbd className="px-1.5 py-0.5 bg-gray-800 border border-gray-700 rounded text-xs">
+                <kbd className={`px-1.5 py-0.5 ${theme === 'dark' ? 'bg-gray-800 border-gray-700' : 'bg-gray-200 border-gray-400'} border rounded text-xs`}>
                   ↵
                 </kbd>
                 <span>to select</span>
               </span>
               <span className="flex items-center gap-1.5">
-                <kbd className="px-1.5 py-0.5 bg-gray-800 border border-gray-700 rounded text-xs">
+                <kbd className={`px-1.5 py-0.5 ${theme === 'dark' ? 'bg-gray-800 border-gray-700' : 'bg-gray-200 border-gray-400'} border rounded text-xs`}>
                   ESC
                 </kbd>
                 <span>to close</span>
@@ -1339,7 +1395,9 @@ const FinancialDictionary = () => {
                   onClick={() => hasTerms && scrollToLetter(letter)}
                   className={`flex-shrink-0 w-8 h-8 flex items-center justify-center text-xs font-editorial-accent font-semibold transition-all ${
                     isActive
-                      ? 'bg-transparent border border-black text-black'
+                      ? theme === 'dark'
+                        ? 'bg-transparent border border-white text-white'
+                        : 'bg-transparent border border-black text-black'
                       : hasTerms
                         ? `${t.textSecondary} ${t.hover} cursor-pointer border border-transparent`
                         : `${theme === 'dark' ? 'text-gray-700' : 'text-gray-300'} cursor-default opacity-30 border border-transparent`
@@ -1535,7 +1593,9 @@ const FinancialDictionary = () => {
                   onClick={() => hasTerms && scrollToLetter(letter)}
                   className={`w-7 h-7 flex items-center justify-center text-xs font-editorial-accent font-semibold transition-all ${
                     isActive
-                      ? 'bg-transparent border border-black text-black'
+                      ? theme === 'dark'
+                        ? 'bg-transparent border border-white text-white'
+                        : 'bg-transparent border border-black text-black'
                       : hasTerms
                         ? `${t.textSecondary} ${t.hover} cursor-pointer border border-transparent`
                         : `${theme === 'dark' ? 'text-gray-700' : 'text-gray-300'} cursor-default opacity-30 border border-transparent`
